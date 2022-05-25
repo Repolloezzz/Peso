@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo2.css">
+    <title>Indice de masa corporal</title>
+</head>
+<body>
+    <header>
+        <h1>Indice de masa corporal💦</h1>
+    </header>
+    <section>
+        <div class="center">
+            <div class="container">
+                <h3 for="">Peso en [Kg]</><br>
+                <input type="number" id="peso"><br>
+                <h3 for="">Estatura en [m]</><br>
+                <input type="number" id="altura"><br>
+                <button id="cal">Calcular</button>
+                <div class="salida" id="salida">resultado...</div>
+            </div>
+            
+        </div>
+    </section>
+    <script>
+        var ej=document.getElementById("cal")
+        ej.addEventListener("click", peso)
+        function peso(){
+            pkg=parseFloat(document.getElementById("peso").value)
+            acm=parseFloat(document.getElementById("altura").value)/100
+            total=(pkg/(Math.pow(acm, 2))).toFixed(2)
+            if (total<=18.5){
+                var estado="🟠Bajo peso"
+            }
+            if (total>18.5 && total<=24.9){
+                var estado="🟢Peso normal"
+            }
+            if (total>=25 && total<29.9){
+                var estado="🟡Sobrepeso"
+            }
+            if (total>=30){
+                var estado="🔴Obesidad"
+            }
+            document.getElementById("salida").innerHTML=estado+" ; "+"IMC:"+total
+        }
+    </script>
+</body>
+</html>
